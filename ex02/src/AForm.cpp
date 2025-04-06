@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Form.cpp                                           :+:    :+:            */
+/*   AForm.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: elleneklund <elleneklund@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/05 19:25:42 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/06 11:08:18 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/06 13:50:21 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,29 @@ std::ostream&	operator<<(std::ostream& stream, const AForm& F)
 
 const char*	AForm::GradeTooHighException::what() const noexcept
 {
-		return "Grade is too high..\n";
+	return "Grade is too high..\n";
 }
 
 const char*	AForm::GradeTooLowException::what() const noexcept
 {
-		return "Grade is too Low..\n";
+	return "Grade is too Low..\n";
 }
+
+const char*	AForm::FormNotSignedException::what() const noexcept
+{
+	return "Cannot grant execution, form not signed\n";
+}
+
+int		AForm::checkGrade(const Bureaucrat& B) const
+{
+	if (!this->_signed)
+	{
+		throw AForm::FormNotSignedException();
+	}
+	if (B.getGrade() >= this->_gradeReqForExecution)
+	{
+		throw AForm::GradeTooLowException();
+	}
+	return (1);
+}
+

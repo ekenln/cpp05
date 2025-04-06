@@ -6,7 +6,7 @@
 /*   By: elleneklund <elleneklund@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 11:10:36 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/06 11:48:05 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/06 13:45:09 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,19 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& old) :
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	std::cout << "hello\n";
+	(void)executor;
+	if (AForm::checkGrade(executor))
+	{
+		std::string fileName = _target + "_shrubbery";
+		std::ofstream fileStream (fileName);
+		fileStream << "       ###\n"
+				<< "      #o###\n"
+				<< "    #####o###\n"
+				<< "   #o#\\#|#/###\n"
+				<< "    ###\\|/#o#\n"
+				<< "     # }|{  #\n"
+				<< "       }|{\n";
+		fileStream.close();
+	}
+	
 }		

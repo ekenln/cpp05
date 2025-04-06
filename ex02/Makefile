@@ -1,4 +1,4 @@
-NAME = bureaucrat
+NAME = form
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++17 -MMD -MP
 HEADERS = -I ./include
@@ -6,7 +6,7 @@ HEADERS = -I ./include
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRC = $(addprefix $(SRC_DIR)/, Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp main.cpp)
+SRC = $(addprefix $(SRC_DIR)/, Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp)
 OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 DEPS = $(OBJ:.o=.d)
 

@@ -6,7 +6,7 @@
 /*   By: elleneklund <elleneklund@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 10:56:35 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/06 11:07:47 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/06 13:48:24 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ class AForm
 			public:
 				const char*	what() const noexcept override;
 		};
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				const char*	what() const noexcept override;
+		};
 		AForm();
 		AForm(const std::string name, const int gradeReqForSigning, const int gradeReqForExecution);
 		~AForm();
@@ -46,6 +51,7 @@ class AForm
 		int				getGradeSign( void ) const;
 		int				getGradeExec( void ) const;
 		int				beSigned(const Bureaucrat& B);
+		int				checkGrade(const Bureaucrat& B) const;
 		virtual void	execute(Bureaucrat const & executor) const = 0;		
 };
 
