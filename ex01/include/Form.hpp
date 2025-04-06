@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Bureaucrat.hpp                                    :+:    :+:            */
+/*   Form.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
+/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/01 17:18:26 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/01 17:18:48 by eeklund       ########   odam.nl         */
+/*   Created: 2025/04/05 19:25:54 by elleneklund   #+#    #+#                 */
+/*   Updated: 2025/04/06 10:53:10 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include <exception>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Form
 {
 	private:
+
 		const std::string	_name;
-		int					_grade;
+		bool				_signed;
+		const int			_gradeReqForSigning;
+		const int			_gradeReqForExecution;
 
 	public:
 
@@ -28,25 +31,23 @@ class Bureaucrat
 			public:
 				const char*	what() const noexcept override;
 		};
-
 		class GradeTooLowException : public std::exception
 		{
 			public:
 				const char*	what() const noexcept override;
 		};
-
-		Bureaucrat();
-		Bureaucrat(int grade);
-		Bureaucrat( std::string name, int grade );
-		~Bureaucrat();
-		Bureaucrat(const Bureaucrat& old);
-		Bureaucrat&	operator=(const Bureaucrat& B);
-
+		Form();
+		Form(const std::string name, const int gradeReqForSigning, const int gradeReqForExecution);
+		~Form();
+		Form(const Form& old);
+		Form&		operator=(const Form& F) = delete;
 		std::string	getName( void ) const;
-		int			getGrade( void ) const;
-		void		decrementGrade( void );
-		void		incrementGrade( void );
+		bool		getSigned( void ) const;
+		int			getGradeSign( void ) const;
+		int			getGradeExec( void ) const;
+		int			beSigned(const Bureaucrat& B);
 
+		
 };
 
-std::ostream&	operator<<(std::ostream& stream, const Bureaucrat& B);
+std::ostream&	operator<<(std::ostream& stream, const Form& F);

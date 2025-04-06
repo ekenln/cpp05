@@ -6,11 +6,12 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/01 17:27:48 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/06 10:26:33 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/06 10:49:01 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("stiffBoy"), _grade(150)
 {
@@ -44,7 +45,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "bureaucrat destructor called\n";
+	std::cout << "bureaucrat: " << _name << " destructor called\n";
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat& old ) : _name(old._name), _grade(old._grade) {};
@@ -66,6 +67,21 @@ std::string	Bureaucrat::getName( void ) const {
 int	Bureaucrat::getGrade( void ) const {
 	return (_grade);
 }
+
+void	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << "\n"; 
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << "\n";
+	}
+}
+
 
 void	Bureaucrat::decrementGrade( void )
 {
@@ -100,8 +116,3 @@ const char*	Bureaucrat::GradeTooLowException::what() const noexcept
 {
 		return "Grade is too Low..\n";
 }
-
-// const char*	what() const noexcept
-// {
-// 	return "Grade is too high..\n";
-// }

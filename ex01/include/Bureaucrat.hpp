@@ -15,6 +15,8 @@
 #include <iostream>
 #include <exception>
 
+class Form;
+
 class Bureaucrat
 {
 	private:
@@ -46,6 +48,7 @@ class Bureaucrat
 		int			getGrade( void ) const;
 		void		decrementGrade( void );
 		void		incrementGrade( void );
+		void		signForm(Form& form);
 
 };
 

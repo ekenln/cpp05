@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Bureaucrat.hpp                                    :+:    :+:            */
+/*   Bureaucrat.hpp                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
+/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/01 17:18:26 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/01 17:18:48 by eeklund       ########   odam.nl         */
+/*   Created: 2025/04/06 10:56:49 by elleneklund   #+#    #+#                 */
+/*   Updated: 2025/04/06 11:06:54 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <exception>
+
+class AForm;
 
 class Bureaucrat
 {
@@ -42,11 +44,11 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat& old);
 		Bureaucrat&	operator=(const Bureaucrat& B);
 
-		std::string	getName( void ) const;
-		int			getGrade( void ) const;
-		void		decrementGrade( void );
-		void		incrementGrade( void );
-
+		std::string		getName( void ) const;
+		int				getGrade( void ) const;
+		void			decrementGrade( void );
+		void			incrementGrade( void );
+		void			signForm(AForm& form);
 };
 
 std::ostream&	operator<<(std::ostream& stream, const Bureaucrat& B);
