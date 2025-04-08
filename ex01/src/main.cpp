@@ -6,42 +6,9 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/01 18:02:35 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/06 10:51:03 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/08 15:12:41 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-// #include "../include/Bureaucrat.hpp"
-
-// int main( void )
-// {
-// 	// try
-// 	// {
-// 	// 	Bureaucrat boy(0);
-// 	// }
-// 	// catch (const Bureaucrat::GradeTooHighException& e) {
-// 	// 	std::cerr << "Caught exception: " << e.what() << std::endl;
-// 	// } 
-// 	// catch (const Bureaucrat::GradeTooLowException& e) {
-// 	// 	std::cerr << "Caught exception: " << e.what() << std::endl;
-// 	// }
-// 	try
-// 	{
-// 		Bureaucrat boy2("funBoy", 130);
-// 		std::cout << boy2;
-// 		boy2.incrementGrade();
-// 		std::cout << boy2;
-// 		Bureaucrat boy(0);
-// 	}
-// 	catch(const Bureaucrat::GradeTooHighException& e)
-// 	{
-// 		std::cerr << "caught exception: " << e.what() << '\n';
-// 	}
-// 	catch(const Bureaucrat::GradeTooLowException& e)
-// 	{
-// 		std::cerr << "caught exception: " << e.what() << '\n';
-// 	}
-// 	return 0;
-// }
 
 #include <iostream>
 #include "Bureaucrat.hpp"
@@ -51,34 +18,40 @@ int main()
 {
 	try
 	{
-		// Create Bureaucrats with different grades
-		Bureaucrat john("John", 3);
-		Bureaucrat bob("Bob", 50);
-		Bureaucrat jim("Jim", 150);
+		Bureaucrat Zalazar("Zalazar", 3);
+		Bureaucrat Pettigrew("Pettigrew", 50);
+		Bureaucrat Sirius("Sirius", 40);
 
-		// Create Forms with different required grades
-		Form taxForm("TaxForm", 10, 50);
-		Form travelPermit("TravelPermit", 100, 120);
-		Form launchCode("LaunchCode", 4, 1);
+		std::cout << "\nconstructing forms.....\n";
+		Form clownForm("clownForm", 10, 50);
+		Form hogsmeadePermit("hogsmeadePermit", 100, 120);
+		Form theForm("theForm", 4, 1);
 
-		std::cout << "\n--- Forms before signing ---\n";
-		std::cout << taxForm << std::endl;
-		std::cout << travelPermit << std::endl;
-		std::cout << launchCode << std::endl;
+		std::cout << "----Forms before signing ---\n";
+		std::cout << clownForm << std::endl;
+		std::cout << hogsmeadePermit << std::endl;
+		std::cout << theForm << std::endl;
 
 		std::cout << "\n--- Signing attempts ---\n";
-		john.signForm(taxForm);         // should succeed
-		bob.signForm(travelPermit);     // should succeed
-		jim.signForm(launchCode);       // should fail
+		Zalazar.signForm(clownForm);
+		Sirius.signForm(hogsmeadePermit);
+		Pettigrew.signForm(theForm);
 
-		std::cout << "\n--- Another signing attempt ---\n";
-		john.signForm(launchCode);      // should succeed
-
-		// Display forms after signing
 		std::cout << "\n--- Forms after signing ---\n";
-		std::cout << taxForm << std::endl;
-		std::cout << travelPermit << std::endl;
-		std::cout << launchCode << std::endl;
+		std::cout << clownForm << std::endl;
+		std::cout << hogsmeadePermit << std::endl;
+		std::cout << theForm << std::endl;
+	
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Exception caught in main: " << e.what() << std::endl;
+	}
+
+	try
+	{
+		std::cout << "\n---trying to create form with out of bounds grade----\n";
+		Form crazyForm("CrayCray", 0, 50);
 	}
 	catch (const std::exception &e)
 	{
@@ -87,4 +60,3 @@ int main()
 
 	return 0;
 }
-

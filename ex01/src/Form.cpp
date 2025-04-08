@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/05 19:25:42 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 13:09:18 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/08 15:02:54 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ std::string	Form::getName( void ) const
 	return (_name);
 }
 
-bool		Form::getSigned( void ) const
+bool	Form::getSigned( void ) const
 {
 	return(_signed);
 }
@@ -50,12 +50,11 @@ int	Form::getGradeExec( void ) const {
 	return (_gradeExec);
 }
 
-int		Form::beSigned(const Bureaucrat& B)
+void	Form::beSigned(const Bureaucrat& B)
 {
-	if (B.getGrade() <= this->getGradeSign() && this->getSigned() != true)
+	if (B.getGrade() <= this->getGradeSign())
 	{
-		this->_signed = !this->_signed;
-		return (1);
+		this->_signed = true;
 	}
 	else
 	{

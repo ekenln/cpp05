@@ -1,4 +1,4 @@
-NAME = form
+NAME = moreForms
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++17 -MMD -MP
 HEADERS = -I ./include

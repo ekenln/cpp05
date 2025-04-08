@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/05 19:25:42 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 13:09:43 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/08 15:42:40 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int	AForm::getGradeExec( void ) const {
 
 int		AForm::beSigned(const Bureaucrat& B)
 {
-	if (B.getGrade() <= this->getGradeSign() && this->getSigned() != true)
+	if (B.getGrade() <= this->getGradeSign())
 	{
-		this->_signed = !this->_signed;
+		this->_signed = true;
 		return (1);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/05 19:25:54 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 13:13:59 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/08 15:03:12 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class Form
 		int			getGradeSign( void ) const;
 		int			getGradeExec( void ) const;
 
-		int			beSigned(const Bureaucrat& B);
+		void		beSigned(const Bureaucrat& B);
 };
 
 std::ostream&	operator<<(std::ostream& stream, const Form& F);

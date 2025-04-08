@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 12:46:17 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 14:14:25 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/08 15:18:44 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,20 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& old) : AForm
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	(void) executor;
-	if (AForm::checkGrade(executor))
+	AForm::checkGrade(executor);
+	// {
+	std::cout << "*drilling noises*\n";
+	if (std::rand() % 2 == 0)
 	{
-		std::cout << "*drilling noises*\n";
-		if (std::rand() % 2 == 0)
-		{
-			std::cout << this->_target << " has been robotomized\n";
-		}
-		else
-			std::cout << this->_target << " failed to become robotomized\n";
+		std::cout << this->_target << " has been robotomized\n";
 	}
 	else
-	{
-		throw AForm::GradeTooLowException();
-	}
+		std::cout << this->_target << " failed to become robotomized\n";
+	// }
+	// else
+	// {
+	// 	throw AForm::GradeTooLowException();
+	// }
 
 }
 

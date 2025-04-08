@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/01 17:27:48 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/06 14:05:31 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/08 15:41:58 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,9 @@ Bureaucrat::Bureaucrat( const Bureaucrat& old ) : _name(old._name), _grade(old._
 
 Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& B )
 {
-	if (this != &B)
-	{
-		// _name = B.getName(); // _name is const??? what to do?? 
-		_grade = B._grade;
-	}
+	if (this == &B)
+		return (*this);
+	_grade = B._grade;
 	return (*this);
 }
 
@@ -74,7 +72,6 @@ void	Bureaucrat::signForm(AForm& form)
 	{
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << "\n"; 
-
 	}
 	catch(const std::exception& e)
 	{

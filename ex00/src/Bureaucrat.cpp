@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/01 17:27:48 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/08 12:59:58 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/08 14:53:07 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Bureaucrat::Bureaucrat( int grade ) : _name("stiffBoy")
 		throw Bureaucrat::GradeTooLowException();
 	}
 	this->_grade = grade;
+	std::cout << "bureaucrat " << getName() << " constructor called\n";
 }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name)
@@ -40,11 +41,12 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name)
 		throw Bureaucrat::GradeTooLowException();
 	}
 	this->_grade = grade;
+	std::cout << "bureaucrat " << getName() << " constructor called\n";
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "bureaucrat destructor called\n";
+	std::cout << "bureaucrat " << getName() << " destructor called\n";
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat& old ) : _name(old._name), _grade(old._grade) {};

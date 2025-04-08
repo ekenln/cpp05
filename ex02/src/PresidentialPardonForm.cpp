@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   PresidentialPardonForm.cpp                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 13:29:09 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/06 13:44:34 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/08 15:19:31 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& old
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	(void)executor;
-	if (AForm::checkGrade(executor))
-		std::cout << _target << " has been pardoned by Zaphod Beeblebrox\n";
+	AForm::checkGrade(executor);
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox\n";
 }

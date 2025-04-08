@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/05 19:25:42 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 13:25:10 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/08 15:36:26 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,11 @@ int	AForm::getGradeExec( void ) const {
 	return (_gradeExec);
 }
 
-int		AForm::beSigned(const Bureaucrat& B)
+void	AForm::beSigned(const Bureaucrat& B)
 {
-	if (B.getGrade() <= this->getGradeSign() && this->getSigned() != true)
+	if (B.getGrade() <= this->getGradeSign())
 	{
-		this->_signed = !this->_signed;
-		return (1);
+		this->_signed = true;
 	}
 	else
 	{
@@ -91,10 +90,10 @@ const char*	AForm::GradeTooLowException::what() const noexcept
 
 const char*	AForm::FormNotSignedException::what() const noexcept
 {
-	return "Form not signed\n";
+	return "Form not signed";
 }
 
-int		AForm::checkGrade(const Bureaucrat& B) const
+void	AForm::checkGrade(const Bureaucrat& B) const
 {
 	if (!this->_signed)
 	{
@@ -104,6 +103,5 @@ int		AForm::checkGrade(const Bureaucrat& B) const
 	{
 		throw AForm::GradeTooLowException();
 	}
-	return (1);
 }
 
