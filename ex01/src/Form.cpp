@@ -3,25 +3,25 @@
 /*                                                        ::::::::            */
 /*   Form.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/05 19:25:42 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/06 10:53:15 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/08 13:09:18 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : _name("Form"), _signed(false), _gradeReqForSigning(100), _gradeReqForExecution(100) {}
+Form::Form() : _name("Form"), _signed(false), _gradeSignature(100), _gradeExec(100) {}
 
-Form::Form(const std::string name, const int gradeReqForSigning, const int gradeReqForExecution) : 
-_name(name), _signed(false), _gradeReqForSigning(gradeReqForSigning), _gradeReqForExecution(gradeReqForExecution) 
+Form::Form(const std::string name, const int gradeSignature, const int gradeExec) : 
+_name(name), _signed(false), _gradeSignature(gradeSignature), _gradeExec(gradeExec) 
 {
-	if (_gradeReqForSigning < 1 || _gradeReqForExecution < 1)
+	if (_gradeSignature < 1 || _gradeExec < 1)
 	{
 		throw Form::GradeTooHighException();
 	}
-	else if (_gradeReqForSigning > 150 || _gradeReqForExecution > 150)
+	else if (_gradeSignature > 150 || _gradeExec > 150)
 	{
 		throw Form::GradeTooLowException();
 	}
@@ -30,7 +30,7 @@ _name(name), _signed(false), _gradeReqForSigning(gradeReqForSigning), _gradeReqF
 Form::~Form() {};
 
 Form::Form(const Form& old) : _name(old._name), _signed(old._signed), 
-_gradeReqForSigning(old._gradeReqForSigning), _gradeReqForExecution(old._gradeReqForExecution) {}
+_gradeSignature(old._gradeSignature), _gradeExec(old._gradeExec) {}
 
 std::string	Form::getName( void ) const
 {
@@ -43,11 +43,11 @@ bool		Form::getSigned( void ) const
 }
 
 int	Form::getGradeSign( void ) const {
-	return (_gradeReqForSigning);
+	return (_gradeSignature);
 }
 
 int	Form::getGradeExec( void ) const {
-	return (_gradeReqForExecution);
+	return (_gradeExec);
 }
 
 int		Form::beSigned(const Bureaucrat& B)

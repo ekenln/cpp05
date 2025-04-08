@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 10:56:35 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 12:12:27 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/08 13:09:35 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class AForm
 
 		const std::string	_name;
 		bool				_signed;
-		const int			_gradeReqForSigning;
-		const int			_gradeReqForExecution;
+		const int			_gradeSignature;
+		const int			_gradeExec;
 
 	public:
 
@@ -42,7 +42,7 @@ class AForm
 				const char*	what() const noexcept override;
 		};
 		AForm();
-		AForm(const std::string name, const int gradeReqForSigning, const int gradeReqForExecution);
+		AForm(const std::string name, const int gradeSignature, const int gradeExec);
 		virtual ~AForm();
 		AForm(const AForm& old);
 		AForm&			operator=(const AForm& F) = delete;

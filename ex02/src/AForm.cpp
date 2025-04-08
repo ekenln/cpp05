@@ -3,25 +3,25 @@
 /*                                                        ::::::::            */
 /*   AForm.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/05 19:25:42 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/06 13:50:21 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/08 13:25:10 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("AForm"), _signed(false), _gradeReqForSigning(100), _gradeReqForExecution(100) {}
+AForm::AForm() : _name("AForm"), _signed(false), _gradeSignature(100), _gradeExec(100) {}
 
-AForm::AForm(const std::string name, const int gradeReqForSigning, const int gradeReqForExecution) : 
-_name(name), _signed(false), _gradeReqForSigning(gradeReqForSigning), _gradeReqForExecution(gradeReqForExecution) 
+AForm::AForm(const std::string name, const int gradeSignature, const int gradeExec) : 
+_name(name), _signed(false), _gradeSignature(gradeSignature), _gradeExec(gradeExec) 
 {
-	if (_gradeReqForSigning < 1 || _gradeReqForExecution < 1)
+	if (_gradeSignature < 1 || _gradeExec < 1)
 	{
 		throw AForm::GradeTooHighException();
 	}
-	else if (_gradeReqForSigning > 150 || _gradeReqForExecution > 150)
+	else if (_gradeSignature > 150 || _gradeExec > 150)
 	{
 		throw AForm::GradeTooLowException();
 	}
@@ -30,7 +30,7 @@ _name(name), _signed(false), _gradeReqForSigning(gradeReqForSigning), _gradeReqF
 AForm::~AForm() {};
 
 AForm::AForm(const AForm& old) : _name(old._name), _signed(old._signed), 
-_gradeReqForSigning(old._gradeReqForSigning), _gradeReqForExecution(old._gradeReqForExecution) {}
+_gradeSignature(old._gradeSignature), _gradeExec(old._gradeExec) {}
 
 std::string	AForm::getName( void ) const
 {
@@ -43,11 +43,11 @@ bool		AForm::getSigned( void ) const
 }
 
 int	AForm::getGradeSign( void ) const {
-	return (_gradeReqForSigning);
+	return (_gradeSignature);
 }
 
 int	AForm::getGradeExec( void ) const {
-	return (_gradeReqForExecution);
+	return (_gradeExec);
 }
 
 int		AForm::beSigned(const Bureaucrat& B)
@@ -91,7 +91,7 @@ const char*	AForm::GradeTooLowException::what() const noexcept
 
 const char*	AForm::FormNotSignedException::what() const noexcept
 {
-	return "Cannot grant execution, form not signed\n";
+	return "Form not signed\n";
 }
 
 int		AForm::checkGrade(const Bureaucrat& B) const
@@ -100,7 +100,7 @@ int		AForm::checkGrade(const Bureaucrat& B) const
 	{
 		throw AForm::FormNotSignedException();
 	}
-	if (B.getGrade() >= this->_gradeReqForExecution)
+	if (B.getGrade() >= this->_gradeExec)
 	{
 		throw AForm::GradeTooLowException();
 	}

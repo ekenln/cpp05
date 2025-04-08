@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/01 17:27:48 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/07 17:06:30 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/08 12:59:58 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat& old ) : _name(old._name), _grade(old._
 Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& B )
 {
 	if (this == &B)
-		return (*this);
-	// _name = B.getName(); // _name is const??? what to do?? 
+		return (*this); 
 	_grade = B._grade;
 	return (*this);
 }
@@ -99,8 +98,3 @@ const char*	Bureaucrat::GradeTooLowException::what() const noexcept
 {
 		return "Grade is too Low..\n";
 }
-
-// const char*	what() const noexcept
-// {
-// 	return "Grade is too high..\n";
-// }

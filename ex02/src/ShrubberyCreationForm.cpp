@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ShrubberyCreationForm.cpp                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 11:10:36 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/06 13:45:09 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/08 13:23:48 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& old) :
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	(void)executor;
+	// (void)executor;
 	if (AForm::checkGrade(executor))
 	{
 		std::string fileName = _target + "_shrubbery";
@@ -36,6 +36,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 				<< "     # }|{  #\n"
 				<< "       }|{\n";
 		fileStream.close();
+		std::cout << "ASCII tree created in " << fileName << std::endl;
 	}
 	
 }		
