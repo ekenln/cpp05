@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   AForm.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 10:56:35 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/06 13:48:24 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/08 12:12:27 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class AForm
 		};
 		AForm();
 		AForm(const std::string name, const int gradeReqForSigning, const int gradeReqForExecution);
-		~AForm();
+		virtual ~AForm();
 		AForm(const AForm& old);
 		AForm&			operator=(const AForm& F) = delete;
 		std::string		getName( void ) const;

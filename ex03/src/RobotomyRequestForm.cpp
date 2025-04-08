@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   RobotomyRequestForm.cpp                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 12:46:17 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/06 13:44:40 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/08 12:11:32 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	(void) executor;
 	if (AForm::checkGrade(executor))
 	std::cout << "*drilling noises*\n";
-	std::cout << this->_target << "has been robotomized\n";
-	std::cout << this->_target << "failed to become robotomized\n";
+	std::cout << this->_target << " has been robotomized\n";
+	std::cout << this->_target << " failed to become robotomized\n";
 
 }
 
