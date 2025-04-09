@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 14:14:44 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/09 17:39:55 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/09 18:06:51 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ Intern&	Intern::operator=(const Intern& B)
 {
 	(void)B;
 	return (*this);
+}
+
+const char	*Intern::FormNonExistentException::what() const noexcept
+{
+	return("The form does not exist and can therefore not be created");
 }
 
 
@@ -56,6 +61,5 @@ AForm	*Intern::makeForm(std::string form, std::string target)
 			return (createdForm); 
 		}
 	}
-	std::cout << "The form " << form << " does not exist and can therfore not be created\n";
-	return (nullptr);
+	throw(FormNonExistentException());
 }

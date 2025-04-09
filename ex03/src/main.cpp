@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/01 18:02:35 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/09 17:37:30 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/09 17:55:19 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main()
 
 		Intern someRandomIntern;
 		AForm* rrf;
-		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		rrf = someRandomIntern.makeForm("presidential ardon", "Bender");
 		Bureaucrat eva("eva", 3);
 		eva.signForm(*rrf);
 		eva.executeForm(*rrf);

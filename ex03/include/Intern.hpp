@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 14:09:37 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/09 17:39:02 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/09 18:03:01 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 class Intern
 {
 	public:
+		class FormNonExistentException : public std::exception
+		{
+			public:
+				const char	*what() const noexcept override;
+		};
 		Intern();
 		~Intern();
 		Intern(const Intern& old);
