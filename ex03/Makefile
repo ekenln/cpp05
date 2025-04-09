@@ -1,4 +1,4 @@
-NAME = form
+NAME = intern
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++17 -MMD -MP
 HEADERS = -I ./include

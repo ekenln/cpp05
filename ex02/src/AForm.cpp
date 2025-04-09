@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/05 19:25:42 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 15:36:26 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/09 17:27:10 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ int	AForm::getGradeExec( void ) const {
 
 void	AForm::beSigned(const Bureaucrat& B)
 {
+	if (this->_signed == true)
+	{
+		throw (std::logic_error("Form already signed"));
+	}
 	if (B.getGrade() <= this->getGradeSign())
 	{
 		this->_signed = true;

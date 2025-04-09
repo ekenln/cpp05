@@ -69,6 +69,11 @@
 		"memory_resource": "cpp",
 		"functional": "cpp",
 		"ranges": "cpp",
-		"span": "cpp"
+		"span": "cpp",
+		"bit": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"utility": "cpp",
+		"numbers": "cpp"
 	}
 }

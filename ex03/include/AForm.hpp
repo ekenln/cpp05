@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 10:56:35 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 13:09:35 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/09 17:16:21 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ class AForm
 		bool			getSigned( void ) const;
 		int				getGradeSign( void ) const;
 		int				getGradeExec( void ) const;
-		int				beSigned(const Bureaucrat& B);
-		int				checkGrade(const Bureaucrat& B) const;
+		void			beSigned(const Bureaucrat& B);
+		void			checkGrade(const Bureaucrat& B) const;
 		virtual void	execute(Bureaucrat const & executor) const = 0;		
 };
 

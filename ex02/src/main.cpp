@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/01 18:02:35 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/08 15:35:41 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/09 17:32:44 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,27 @@ int main()
 		std::srand(std::time(nullptr));
 		Bureaucrat celine("celine", 44);
 		RobotomyRequestForm form2("Robot");
+		std::cout << form2;
 		celine.signForm(form2);
 		celine.executeForm(form2);
-		std::cout << form2;
+		std::cout << std::endl;
 
 		Bureaucrat john("john", 130);
 		ShrubberyCreationForm form("home");
-		form.beSigned(john);
 		std::cout << form;
-		form.execute(john);
+		john.signForm(form);
+		john.signForm(form);
+		john.executeForm(form);
 		std::cout << std::endl;
 
 		Bureaucrat björn("björn", 3);
 		PresidentialPardonForm form3("Benny");
+		std::cout << form3;
+		std::cout << std::endl;
 		björn.executeForm(form3);
 		björn.signForm(form3);
 		björn.executeForm(form3);
 		std::cout << std::endl;
-		std::cout << form3;
 	}	
 	catch(const std::exception& e)
 	{
