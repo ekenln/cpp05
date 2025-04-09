@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 14:14:44 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 14:29:13 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/09 17:39:55 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ Intern::~Intern() {}
 Intern::Intern(const Intern& old) {
 	(void)old;
 }
+
+Intern&	Intern::operator=(const Intern& B)
+{
+	(void)B;
+	return (*this);
+}
+
 
 AForm	*Intern::makeForm(std::string form, std::string target)
 {

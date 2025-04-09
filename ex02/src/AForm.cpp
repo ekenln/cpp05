@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/05 19:25:42 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/09 17:27:10 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/09 17:42:33 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,17 @@ AForm::~AForm() {};
 AForm::AForm(const AForm& old) : _name(old._name), _signed(old._signed), 
 _gradeSignature(old._gradeSignature), _gradeExec(old._gradeExec) {}
 
+AForm&	AForm::operator=(const AForm& F){
+	
+}
+
+
 std::string	AForm::getName( void ) const
 {
 	return (_name);
 }
 
-bool		AForm::getSigned( void ) const
+bool	AForm::getSigned( void ) const
 {
 	return(_signed);
 }

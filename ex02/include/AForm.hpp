@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/06 10:56:35 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/08 15:20:19 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/09 17:41:23 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class AForm
 		AForm(const std::string name, const int gradeSignature, const int gradeExec);
 		virtual ~AForm();
 		AForm(const AForm& old);
-		AForm&			operator=(const AForm& F) = delete;
+		AForm&			operator=(const AForm& F);
 
 		std::string		getName( void ) const;
 		bool			getSigned( void ) const;
